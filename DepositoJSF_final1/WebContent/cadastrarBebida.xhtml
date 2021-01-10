@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<f:metadata>
+
+
+</f:metadata>
+
+<h:head>
+	<title>Cadastro de bebidas - Depósito Primefaces</title>
+</h:head>
+
+<h:body>
+
+	<ui:include src="/menu.xhtml" />
+
+	<h:form id="formularioBebida">
+		<h:panelGrid id="formularioBebida" columns="2">
+			<p:outputLabel value="Descrição" />
+			<p:inputText id="descricao" size="40" maxlength="255" value="#{cadastrarBebidaBean.bebida.descricao}" />
+			<p:outputLabel value="Marca" />
+			<p:inputText id="marca" size="40" maxlength="255" value="#{cadastrarBebidaBean.bebida.marca}" />
+			<p:outputLabel value="Valor Unitário" />
+			<p:inputText id="valorUnitario" size="40" maxlength="255" value="#{cadastrarBebidaBean.bebida.valorUnitario}" />
+			<p:outputLabel value="Lote" />
+			<p:inputText id="lote" size="40" maxlength="255" value="#{cadastrarBebidaBean.bebida.lote}" />
+			<p:outputLabel value="Quantidade em estoque" />
+			<p:inputText id="qtdEstoque" size="40" maxlength="255" value="#{cadastrarBebidaBean.bebida.qtdEstoque}" />
+			<p:growl id="growl" life="2000" />
+			<p:commandButton value="Salvar" id="ajax" update="growl"
+				action="#{cadastrarBebidaBean.salvar}" style="margin-right:20px;"
+				styleClass="ui-priority-primary" />
+
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

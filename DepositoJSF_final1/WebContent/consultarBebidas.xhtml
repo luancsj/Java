@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<f:metadata>
+
+	<f:viewAction action="#{consultarBebida.consultar}" />
+
+</f:metadata>
+
+<h:head>
+
+	<title>Relatório de bebidas em estoque - Depósito Primefaces</title>
+
+</h:head>
+
+<h:body>
+
+	<ui:include src="/menu.xhtml" />
+
+	<br />
+	<h:form id="frm">
+		<p:messages showDetail="false" showSummary="true" id="mensagens" />
+
+		<p:dataTable id="bebidas" value="#{consultarBebida.todosRegistros}"
+			var="bebida" border="1" cellspacing="0" editable="true"
+			cellpadding="2" paginator="true" rows="5" paginatorPosition="bottom">
+
+			<f:facet name="header">
+          	  Consulta de Bebidas em estoque
+     	  	 </f:facet>
+
+
+			<p:column headerText="Descrição">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{bebida.descricao}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{bebida.descricao}" style="width:100%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column headerText="Marca">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{bebida.marca}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{bebida.marca}" style="width:100%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column headerText="Valor">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{bebida.valorUnitario}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{bebida.valorUnitario}" style="width:100%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column headerText="Lote">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{bebida.lote}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{bebida.lote}" style="width:100%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+			<p:column headerText="Quantidade">
+				<p:cellEditor>
+					<f:facet name="output">
+						<h:outputText value="#{bebida.qtdEstoque}" />
+					</f:facet>
+					<f:facet name="input">
+						<p:inputText value="#{bebida.qtdEstoque}" style="width:100%" />
+					</f:facet>
+				</p:cellEditor>
+			</p:column>
+
+		</p:dataTable>
+
+
+	</h:form>
+</h:body>
+</html>
